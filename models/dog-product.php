@@ -1,24 +1,35 @@
 <?php
 
-include "product.php";
+include __DIR__ . "product.php";
 
 class DogProduct extends Product
 {
-	private $type;
+	private string $type;
 
-	public function __construct($name, $price, $type)
-	{
+	public function __construct(
+		string $name,
+		float $price,
+		string $type
+	) {
 		parent::__construct($name, $price);
-		$this->type = $type;
+
+		if (!in_array($type, self::$validTypes)) {
+			die("Tipi consentiti: Cibo, Cuccia, Giocattolo");
+		} else {
+			$this->type = $type;
+		}
 	}
 
-	public function gettype()
+	public function getType()
 	{
 		return $this->type;
 	}
 
-	public function settype($type)
+	public function setType($type)
 	{
+		if (!in_array($type, self::$validTypes)) {
+			die("Tipi consentiti: Cibo, Cuccia, Giocattolo");
+		}
 		$this->type = $type;
 	}
 }

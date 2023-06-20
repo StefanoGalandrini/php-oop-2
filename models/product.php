@@ -1,15 +1,15 @@
 <?php
 
-
 class Product
 {
-	private $name;
-	private $price;
+	protected static $validTypes = ["Cibo", "Cuccia", "Giocattolo"];
 
-	public function __construct($name, $price)
-	{
+	public function __construct(
+		private string $name,
+		private float $price
+	) {
 		$this->name = $name;
-		$this->price = $price;
+		$this->setPrice($price);
 	}
 
 	public function getname()
@@ -19,7 +19,7 @@ class Product
 
 	public function getprice()
 	{
-		return $this->price;
+		return number_format($this->price, 2, ',', '');
 	}
 
 	public function setname($name)
@@ -29,6 +29,10 @@ class Product
 
 	public function setprice($price)
 	{
-		$this->price = $price;
+		if ($price < 0) {
+			die("Il prezzo deve essere maggiore di zero");
+		} else {
+			$this->price = round($price, 2);
+		}
 	}
 }
