@@ -4,7 +4,7 @@ class Category
 {
 	// defines products for cats OR for dogs
 	public function __construct(
-		private string $type
+		protected string $type
 	) {
 		if ($type != "Cane" && $type != "Gatto") {
 			die("Si vendono solo articoli per cani o per gatti");

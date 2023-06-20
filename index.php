@@ -2,11 +2,24 @@
 
 include_once __DIR__ . "/models/category.php";
 include_once __DIR__ . "/models/product.php";
+include_once __DIR__ . "/models/food.php";
+include_once __DIR__ . "/models/bed.php";
+include_once __DIR__ . "/models/toy.php";
 
-$dogProduct = new Category("Cane");
+$dogCategory = new Category("Cane");
+$catCategory = new Category("Gatto");
 
+$dogFood = new Food($dogCategory, "Bocconcini", 10.99, "Manzo e Vitello");
+$catToy = new Toy($catCategory, "Gioco interattivo con farfalle", 17.50, "Plastica");
+$catBed = new Bed($catCategory, "Cuccia per gatti", 35.75, "Media");
+var_dump($dogFood);
+echo $dogFood->getProductImage() . "<br>";
+echo $dogFood->getIconPath();
 
-$dogSomething = new Product($dogProduct, "Giocattolo");
+var_dump($catToy);
+echo $catToy->getProductImage() . "<br>";
+echo $catToy->getIconPath();
 
-var_dump($dogSomething);
-echo $dogSomething->getImagePath();
+var_dump($catBed);
+echo $catBed->getProductImage() . "<br>";
+echo $catBed->getIconPath();

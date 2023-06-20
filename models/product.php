@@ -10,26 +10,30 @@ class Product
 		protected Category $category,
 		protected string $type
 	) {
-		$this->category = $category;
 
 		if (!in_array($this->type, self::$validTypes)) {
 			die("Tipi consentiti: Cibo, Cuccia, Giocattolo");
 		}
+		$this->category = $category;
+		$this->type = $type;
 	}
 
-	public function getType(): string
+
+	// getter methods maybe to be removed
+	public function getType()
 	{
 		return $this->type;
 	}
 
-	public function getCategory(): Category
+	public function getCategory()
 	{
 		return $this->category;
 	}
 
-	public function getImagePath(): string
+	// method to build the string to show the product icon in <img src="...">
+	public function getIconPath()
 	{
-		$imageFileName = strtolower($this->type) . '.jpg';
-		return 'assets/img/icon-' . $imageFileName;
+		$iconPath = strtolower($this->type) . '.jpg';
+		return 'assets/img/icon-' . $iconPath;
 	}
 }
