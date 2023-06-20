@@ -1,13 +1,15 @@
 <?php
 
+include_once __DIR__ . "/category.php";
+
 class Product
 {
-	protected static $validTypes = ["Cibo", "Cuccia", "Giocattolo"];
-
 	public function __construct(
+		protected Category $category,
 		private string $name,
 		private float $price
 	) {
+		$this->category = $category;
 		$this->name = $name;
 		$this->setPrice($price);
 	}
