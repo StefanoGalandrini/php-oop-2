@@ -1,11 +1,12 @@
 <?php
 
+include_once __DIR__ . "/models/category.php";
 include_once __DIR__ . "/models/product.php";
-include_once __DIR__ . "/models/dog-product.php";
-include_once __DIR__ . "/models/cat-product.php";
 
-$dogProduct = new DogProduct("Osso di gomma", 10.99, "Giocattolo");
-$catProduct = new CatProduct("Bocconcini al tonno", 15.99, "Cibo");
+$dogProduct = new Category("Cane");
 
-var_dump($dogProduct);
-var_dump($catProduct);
+
+$dogSomething = new Product($dogProduct, "Giocattolo");
+
+var_dump($dogSomething);
+echo $dogSomething->getImagePath();
