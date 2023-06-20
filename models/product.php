@@ -30,6 +30,15 @@ class Product
 		return $this->category;
 	}
 
+	// method to generate a title for the product
+	public function getProductTitle()
+	{
+		$categoryType = $this->category->getType();  // "Cane" o "Gatto"
+		$productType = $this->type;  // "Cibo", "Cuccia", "Giocattolo"
+		$categoryType = substr(strtolower($categoryType), 0, -1) . 'i'; // Trasforma "Cane" in "cani" e "Gatto" in "gatti"
+		return ucfirst($productType) . " per " . $categoryType;
+	}
+
 	// method to build the string to show the product icon in <img src="...">
 	public function getIconPath()
 	{
