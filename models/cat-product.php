@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . "product.php";
+include __DIR__ . "/product.php";
 
 class CatProduct extends Product
 {
