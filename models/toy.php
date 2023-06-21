@@ -54,16 +54,14 @@ class Toy extends Product
 	public function getProductCard(): string
 	{
 		return '
-	<div class="container">
-		<div class="cards-grid">
-			<div class="card">
-				<img class="product-image" src="' . $this->getProductImage() . '"
-					alt="' . $this->getName() . '">>
-        <h2>' . $this->getName() . '</h2>
-        <p>Prezzo: <span>' . $this->getPrice() . '</span></p>
-        <p>Materiali: <span>' . $this->getMaterials() . '</span></p>
-				<img class="icon" src="' . $this->getIconPath() . '"
-					alt="Icona del prodotto">
-    </div>';
+	<div class="card">
+		<h2>' . $this->getName() . '</h2>
+		<img class="product-image" src="' . $this->getProductImage() . '"
+			alt="' . $this->getName() . '">
+		<p>Prezzo: <span>€ ' . $this->getPrice() . '</span></p>
+		<p>Materiali: <span>' . $this->getMaterials() . '</span></p>
+		<img class="icon" src="' . $this->getIconPath() . '"
+			alt="Icona del prodotto">
+	</div>';
 	}
 }
