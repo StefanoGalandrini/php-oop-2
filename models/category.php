@@ -15,7 +15,7 @@ class Category
 
 	// no need for checking errors here since once defined it's not going to change
 	// for the same reason, no setter is needed after it is constructed
-	public function getType(): string
+	public function getType()
 	{
 		return $this->type;
 	}

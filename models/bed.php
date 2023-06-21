@@ -1,5 +1,7 @@
 <?php
 
+use function PHPSTORM_META\type;
+
 include_once __DIR__ . "/Product.php";
 include_once __DIR__ . "/PriceFormatter.php";
 
@@ -55,9 +57,10 @@ class Bed extends Product
 	{
 		return '
 	<div class="card">
-		<h2>' . $this->getName() . '</h2>
+		<h2 class="title">' . $this->getType() . ' per ' . $this->category->getType() . '</h2>
 		<img class="product-image" src="' . $this->getProductImage() . '"
 			alt="' . $this->getName() . '">
+		<p>Tipo: <span>' . $this->getName() . '</span></p>
 		<p>Prezzo: <span>€ ' . $this->getPrice() . '</span></p>
 		<p>Misura: <span>' . $this->getSize() . '</span></p>
 		<img class="icon" src="' . $this->getIconPath() . '"
