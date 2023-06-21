@@ -1,9 +1,13 @@
 <?php
 
-include_once __DIR__ . "/product.php";
+include_once __DIR__ . "/Product.php";
+include_once __DIR__ . "/PriceFormatter.php";
 
 class Bed extends Product
 {
+
+	use PriceFormatter;
+
 	public function __construct(
 		Category $category,
 		private string $name,
@@ -16,14 +20,14 @@ class Bed extends Product
 		$this->size = $size;
 	}
 
-	public function getName(): string
+	public function getName()
 	{
 		return $this->name;
 	}
 
-	public function getPrice(): string
+	public function getPrice()
 	{
-		return number_format($this->price, 2, ',', '');
+		return $this->formatPrice($this->price);
 	}
 
 	public function getSize()
@@ -31,10 +35,10 @@ class Bed extends Product
 		return $this->size;
 	}
 
-	public function setPrice(float $price): void
+	public function setPrice(float $price)
 	{
 		if ($price < 0) {
-			die("Il prezzo deve essere maggiore di zero");
+			throw new Exception("Il prezzo deve essere maggiore di zero");
 		} else {
 			$this->price = round($price, 2);
 		}

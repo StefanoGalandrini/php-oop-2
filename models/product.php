@@ -1,6 +1,6 @@
 <?php
 
-include_once __DIR__ . "/category.php";
+include_once __DIR__ . "/Category.php";
 
 class Product
 {
@@ -12,7 +12,7 @@ class Product
 	) {
 
 		if (!in_array($this->type, self::$validTypes)) {
-			die("Tipi consentiti: Cibo, Cuccia, Giocattolo");
+			throw new Exception("Tipi consentiti: Cibo, Cuccia, Giocattolo");
 		}
 		$this->category = $category;
 		$this->type = $type;

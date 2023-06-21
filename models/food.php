@@ -1,9 +1,13 @@
 <?php
 
-include_once __DIR__ . "/product.php";
+include_once __DIR__ . "/Product.php";
+include_once __DIR__ . "/PriceFormatter.php";
 
 class Food extends Product
 {
+
+	use PriceFormatter;
+
 	public function __construct(
 		Category $category,
 		private string $name,
@@ -16,14 +20,14 @@ class Food extends Product
 		$this->flavor = $flavor;
 	}
 
-	public function getName(): string
+	public function getName()
 	{
 		return $this->name;
 	}
 
-	public function getPrice(): string
+	public function getPrice()
 	{
-		return number_format($this->price, 2, ',', '');
+		return $this->formatPrice($this->price);
 	}
 
 	public function getFlavor()
@@ -31,10 +35,10 @@ class Food extends Product
 		return $this->flavor;
 	}
 
-	public function setPrice(float $price): void
+	public function setPrice(float $price)
 	{
 		if ($price < 0) {
-			die("Il prezzo deve essere maggiore di zero");
+			throw new Exception("Il prezzo deve essere maggiore di zero");
 		} else {
 			$this->price = round($price, 2);
 		}
