@@ -49,4 +49,17 @@ class Toy extends Product
 	{
 		return "assets/img/" . strtolower($this->category->getType()) . "/" . strtolower($this->type) . ".jpg";
 	}
+
+	// method to generate html for product
+	public function getProductCard(): string
+	{
+		return '
+    <div class="movie-card">
+        <img src="' . $this->getProductImage() . '" alt="' . $this->getName() . '">
+        <h2>' . $this->getName() . '</h2>
+        <p>Prezzo: <span>' . $this->getPrice() . '</span></p>
+        <p>Materiali: <span>' . $this->getMaterials() . '</span></p>
+        <img src="' . $this->getIconPath() . '" alt="Icona del prodotto">
+    </div>';
+	}
 }
