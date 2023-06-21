@@ -20,6 +20,7 @@ $products = $factory->createProducts($products);
 
 <body>
 	<div class="container">
+		<h1>e-commerce per cani e gatti</h1>
 		<div class="cards">
 			<?php foreach ($products as $product) : ?>
 				<?= $product->getProductCard() ?>
