@@ -19,16 +19,14 @@ $products = $factory->createProducts($products);
 </head>
 
 <body>
-	<div class="container">
-		<div class="product-grid">
-			<?php
-			foreach ($products as $product) {
-			?>
-				<?= $product->getProductCard() ?>
-			<?php
-			}
-			?>
-		</div>
+	<?php
+	foreach ($products as $product) {
+	?>
+		<?= $product->getProductCard() ?>
+	<?php
+	}
+	?>
+	</div>
 	</div>
 </body>
 

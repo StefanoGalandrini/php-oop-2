@@ -54,12 +54,19 @@ class Food extends Product
 	public function getProductCard()
 	{
 		return '
-    <div class="movie-card">
-        <img src="' . $this->getProductImage() . '" alt="' . $this->getName() . '">
-        <h2>' . $this->getName() . '</h2>
-        <p>Prezzo: <span>' . $this->getPrice() . '</span></p>
-        <p>Sapore: <span>' . $this->getFlavor() . '</span></p>
-        <img src="' . $this->getIconPath() . '" alt="Icona del prodotto">
-    </div>';
+	<div class="container">
+		<div class="cards-grid">
+			<div class="card">
+				<img class="product-image" src="' . $this->getProductImage() . '"
+					alt="' . $this->getName() . '">
+				<h2>' . $this->getName() . '</h2>
+				<p>Prezzo: <span>' . $this->getPrice() . '</span></p>
+				<p>Sapore: <span>' . $this->getFlavor() . '</span></p>
+				<img class="icon" src="' . $this->getIconPath() . '"
+					alt="Icona del prodotto">
+			</div>
+		</div>
+	</div>
+</body>';
 	}
 }
